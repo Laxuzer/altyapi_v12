@@ -14,13 +14,13 @@ Tek bir parametre ile `herşeye` erişim sağlayabilirsiniz.
         - [Emoji](src/base/Emoji.js#L3)
         - db `(LowDB)`
         - [config](src/config.json)
-    - [Message](src/base/Ctx.js#L50) ([Discord.Message](https://discord.js.org/#/docs/main/stable/class/Message))
-    - [Channel](src/base/Ctx.js#L53) ([Discord.Channel](https://discord.js.org/#/docs/main/stable/class/Channel))
-    - [Guild](src/base/Ctx.js#L56) ([Discord.Guild](https://discord.js.org/#/docs/main/stable/class/Guild))
-    - [Me](src/base/Ctx.js#L59) (Client [Discord.GuildMember](https://discord.js.org/#/docs/main/stable/class/GuildMember))
-    - [Author](src/base/Ctx.js#L62) ([Discord.User](https://discord.js.org/#/docs/main/stable/class/User))
-    - [Member](src/base/Ctx.js#L65) ([Discord.GuildMember](https://discord.js.org/#/docs/main/stable/class/GuildMember))
-    - Input
+    - [Message](src/base/Ctx.js#L52) ([Discord.Message](https://discord.js.org/#/docs/main/stable/class/Message))
+    - [Channel](src/base/Ctx.js#L57) ([Discord.Channel](https://discord.js.org/#/docs/main/stable/class/Channel))
+    - [Guild](src/base/Ctx.js#L62) ([Discord.Guild](https://discord.js.org/#/docs/main/stable/class/Guild))
+    - [Me](src/base/Ctx.js#L67) (Client [Discord.GuildMember](https://discord.js.org/#/docs/main/stable/class/GuildMember))
+    - [Author](src/base/Ctx.js#L77) ([Discord.User](https://discord.js.org/#/docs/main/stable/class/User))
+    - [Member](src/base/Ctx.js#L82) ([Discord.GuildMember](https://discord.js.org/#/docs/main/stable/class/GuildMember))
+    - [Input](src/base/Ctx.js#L4)
         - Prefix
         - Flags `(-- ile başlayanlar --full gibi)`
         - Args `(Temiz Argümanlar)`
