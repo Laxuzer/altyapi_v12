@@ -1,6 +1,8 @@
-# DJS v12 Altyapı
+# DJS v13 Altyapı
 
 - **Soru/İstek/Şikayet** ve __daha fazlası__ için [Discord Sunucum](https://discord.gg/VUNbq4SwxY) `Laxuzer#0480`
+
+- Slash uyumlu olmayan v13 altyapı.
 
 - Botu çalıştırmadan önce [`config.json`](src/config.json)'u doldurmalısınız.
 
