@@ -22,7 +22,7 @@ class CommandHandler {
 
     async init() {
         const directories = await readdirSync("./src/commands/");
-        this.client.logger.templates.Log('CommandHandler', `Loading a total of ${directories.length} categories.`);
+        this.client.logger.log('CommandHandler', `Loading a total of ${directories.length} categories.`);
         directories.forEach(async (dir) => {
             const commands = await readdirSync("./src/commands/" + dir + "/");
             commands.filter((cmd) => cmd.split(".").pop() === "js").forEach((cmd) => {
@@ -46,7 +46,7 @@ class CommandHandler {
             const checkCommandLoaded = require.cache[require.resolve(`.${commandPath}${path.sep}${commandName}`)];
             if (checkCommandLoaded?.loaded) delete require.cache[require.resolve(`.${commandPath}${path.sep}${commandName}`)];
             const props = new (require(`.${commandPath}${path.sep}${commandName}`));
-            this.client.logger.templates.Log('CommandHandler', `Loading Command: ${props.name}. 👌`, "log");
+            this.client.logger.log('CommandHandler', `Loading Command: ${props.name}. 👌`, "log");
             props.location = commandPath;
             props.fileName = commandName;
             if (props.init) {
