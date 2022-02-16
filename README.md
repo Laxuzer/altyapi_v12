@@ -1,6 +1,6 @@
 # DJS v13 Altyapı
 
-- **Soru/İstek/Şikayet** ve __daha fazlası__ için [Discord Sunucum](https://discord.gg/VUNbq4SwxY) `Laxuzer#0480`
+- **Soru/İstek/Şikayet** ve __daha fazlası__ için [Discord Sunucum](https://discord.gg/VUNbq4SwxY) `Laxuzer#0001`
 
 - Slash uyumlu olmayan v13 altyapı.
 
