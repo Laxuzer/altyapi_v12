@@ -107,20 +107,71 @@ class Context {
     }
 
     /**
+     * @name replyMessage
+     * @param  {MessageOptions|MessageEmbed|MessageActionRow|MessageAttachment|MessageButton|String|Number} args 
+     * @returns Message
+     */
+    reply(...args) {
+        let Embeds = [], ActionRows = [], Attachments = [], text = '', _Object;
+        args.forEach(e => {
+            if (typeof e == 'string' || typeof e == 'number') return text += `${e}`;
+            if (e instanceof MessageEmbed) return Embeds.push(e);
+            if (e instanceof MessageButton) {
+                if (ActionRows.length >= 1) {
+                    ActionRows[0] = ActionRows[0].addComponents(e);
+                } else {
+                    let nMAR = new MessageActionRow().addComponents(e)
+                    ActionRows.push(nMAR);
+                }
+                return;
+            }
+            if (e instanceof MessageActionRow) return ActionRows.push(e);
+            if (e instanceof MessageAttachment) return Attachments.push(e);
+            if (typeof e == 'object') return _Object = e;
+        });
+        if (_Object)
+            return this.message.reply(_Object);
+        else
+            return this.message.reply({
+                content: text == '' ? undefined: text,
+                embeds: Embeds,
+                components: ActionRows,
+                files: Attachments,
+                allowedMentions: { repliedUser: false }
+            });
+    };
+    /**
      * @name sendMessage
-     * @returns {Message}
+     * @param  {MessageOptions|MessageEmbed|MessageActionRow|MessageAttachment|MessageButton|String|Number} args 
+     * @returns Message
      */
     send(...args) {
-        return this.channel.send(...args);
-    };
-
-    /**
-     * @name sendAttachment
-     * @param {Array<MessageAttachment>} buffer
-     * @returns {Message}
-     */
-    sendAttachment(buffers, message = undefined) {
-        return this.channel.send(message, { attachments: buffers });
+        let Embeds = [], ActionRows = [], Attachments = [], text = '', _Object;
+        args.forEach(e => {
+            if (typeof e == 'string' || typeof e == 'number') return text += `${e}`;
+            if (e instanceof MessageEmbed) return Embeds.push(e);
+            if (e instanceof MessageButton) {
+                if (ActionRows.length >= 1) {
+                    ActionRows[0] = ActionRows[0].addComponents(e);
+                } else {
+                    let nMAR = new MessageActionRow().addComponents(e)
+                    ActionRows.push(nMAR);
+                }
+                return;
+            }
+            if (e instanceof MessageActionRow) return ActionRows.push(e);
+            if (e instanceof MessageAttachment) return Attachments.push(e);
+            if (typeof e == 'object') return _Object = e;
+        });
+        if (_Object)
+            return this.channel.send(_Object);
+        else
+            return this.channel.send({
+                content: text == '' ? undefined: text,
+                embeds: Embeds,
+                components: ActionRows,
+                files: Attachments
+            });
     };
 };
 
