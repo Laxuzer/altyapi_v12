@@ -87,7 +87,7 @@ class Context {
          */
         this.input = In;
         
-        this.db = client.db;
+        this.db = this.client.db;
     };
 
     emoji(emojiname) {
