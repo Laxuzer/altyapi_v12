@@ -1,4 +1,4 @@
-const { Message, TextChannel, User, Guild, GuildMember, MessageAttachment, DiscordAPIError, MessageEmbed } = require("discord.js");
+const { Message, TextChannel, User, Guild, GuildMember, MessageAttachment, DiscordAPIError, MessageEmbed, MessageButton, MessageSelectMenu } = require("discord.js");
 const Client = require('./Client');
 
 class Input {
@@ -127,6 +127,15 @@ class Context {
                 }
                 return;
             }
+            if (e instanceof MessageSelectMenu) {
+                if (ActionRows.length >= 1) {
+                    ActionRows[0] = ActionRows[0].addComponents(e);
+                } else {
+                    let nMAR = new MessageActionRow().addComponents(e)
+                    ActionRows.push(nMAR);
+                }
+                return;
+            }
             if (e instanceof MessageActionRow) return ActionRows.push(e);
             if (e instanceof MessageAttachment) return Attachments.push(e);
             if (typeof e == 'object') return _Object = e;
@@ -153,6 +162,15 @@ class Context {
             if (typeof e == 'string' || typeof e == 'number') return text += `${e}`;
             if (e instanceof MessageEmbed) return Embeds.push(e);
             if (e instanceof MessageButton) {
+                if (ActionRows.length >= 1) {
+                    ActionRows[0] = ActionRows[0].addComponents(e);
+                } else {
+                    let nMAR = new MessageActionRow().addComponents(e)
+                    ActionRows.push(nMAR);
+                }
+                return;
+            }
+            if (e instanceof MessageSelectMenu) {
                 if (ActionRows.length >= 1) {
                     ActionRows[0] = ActionRows[0].addComponents(e);
                 } else {
